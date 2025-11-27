@@ -2,9 +2,16 @@
 
 ## 🎯 Visão Geral do Projeto
 
-Este repositório contém os scripts de implementação e manipulação de dados (DDL e DML) para o projeto "SafeRoads", um sistema de banco de dados modelado para gerenciar e monitorar trechos rodoviários críticos, emitir alertas de condições climáticas adversas (como gelo iminente) e coordenar o envio de caminhões de manutenção (sal/areia).
+Este repositório contém os scripts de implementação e manipulação de dados (DDL e DML) para o projeto "SafeRoads", um sistema de banco de dados modelado para gerenciar e monitorar trechos rodoviários críticos, emitir alertas de condições climáticas adversas (como risco de formação de gelo iminente) e coordenar o envio de caminhões de manutenção (sal/areia).
 
 O sistema visa otimizar a segurança rodoviária e a resposta a emergências em condições de inverno, integrando dados de sensores e ordens de serviço.
+
+O sistema opera com base na seguinte lógica:
+
+* **Monitoramento Preditivo:** Sensores instalados em **trechos rodoviários críticos** registram continuamente dados de **temperatura** (incluindo temperaturas negativas, como -4 °C) e umidade média, enviando essas leituras ao sistema.
+* **Alerta e Localização:** O sistema avalia esses dados para **emitir alertas** (`TB_ALERTA`) de forma preditiva. Cada alerta está ligado a coordenadas e trechos específicos (Rodovia das Colinas), permitindo uma resposta precisa.
+* **Gerenciamento de Manutenção:** O sistema gera automaticamente **Ordens de Serviço** (`TB_ORDEM_SERVICO`) de prioridade (URGENTE/NORMAL) para coordenar o envio de **caminhões de manutenção** (`TB_CAMINHAO_MANUTENCAO`), que aplicam **sal/areia** nas estradas para mitigar o risco.
+* **Controle de Frota:** O sistema gerencia o *status* operacional da frota para otimizar o tempo de resposta.
 
 ## 🛠️ Tecnologias Utilizadas
 
